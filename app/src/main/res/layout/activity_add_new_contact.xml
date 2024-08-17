@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="contact"
+            type="com.example.contactsmanager.Contacts" />
+        <variable
+            name="clickHandler"
+            type="com.example.contactsmanager.AddNewContactClickHandler" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/add_new"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_add_new_contact"
+    tools:context=".AddNewContactActivity">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#255C99"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="@id/add_new"
+        app:layout_constraintStart_toStartOf="@id/add_new"
+        app:layout_constraintTop_toTopOf="@id/add_new">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Contact"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/add_new"
+        app:layout_constraintStart_toStartOf="@id/add_new"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout_menu">
+
+        <EditText
+            android:id="@+id/editTextname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Name"
+            android:text="@={contact.name}"
+            android:textColor="@color/white"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/linear_layout"
+            app:layout_constraintStart_toStartOf="@id/linear_layout"
+            app:layout_constraintTop_toTopOf="@+id/linear_layout" />
+
+        <EditText
+            android:id="@+id/editTextphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Phone"
+            android:inputType="textPhonetic"
+            android:text="@={contact.phone}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/linear_layout"
+            app:layout_constraintStart_toStartOf="@id/linear_layout"
+            app:layout_constraintTop_toBottomOf="@+id/editTextname" />
+
+        <EditText
+            android:id="@+id/editTextemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Email"
+            android:text="@={contact.email}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toBottomOf="@id/linear_layout"
+            app:layout_constraintEnd_toEndOf="@id/linear_layout"
+            app:layout_constraintStart_toStartOf="@id/linear_layout"
+            app:layout_constraintTop_toBottomOf="@+id/editTextphone" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#C20114"
+        android:onClick="@{clickHandler::onSubmitBtnClicked}"
+        android:text="Add Contact to ROOM DB"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/add_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
