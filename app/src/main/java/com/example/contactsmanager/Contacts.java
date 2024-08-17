@@ -20,8 +20,7 @@ public class Contacts {
     @ColumnInfo(name = "contact_email")
     private String email;
 
-    public Contacts(int id, String name, String phone, String email) {
-        this.id = id;
+    public Contacts(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
         this.email = email;
