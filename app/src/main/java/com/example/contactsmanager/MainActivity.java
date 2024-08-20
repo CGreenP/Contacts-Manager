@@ -1,6 +1,9 @@
 package com.example.contactsmanager;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.contactsmanager.databinding.ActivityMainBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,9 +96,20 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                if(actionState == ItemTouchHelper.ACTION_STATE_SWIPE){
+                    float alpha = 1 - Math.abs(dX) / (float) viewHolder.itemView.getWidth();
+                    viewHolder.itemView.setAlpha(alpha);
+                }
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+
+            @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 // If you swipe the item to the left
                 Contacts c = contactsArrayList.get(viewHolder.getAdapterPosition());
+
+                Toast.makeText(MainActivity.this, ""+c.getName()+" got Deleted!", Toast.LENGTH_SHORT).show();
 
                 viewModel.deleteContact(c);
             }
