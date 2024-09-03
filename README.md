@@ -26,6 +26,7 @@ Inspired by the Udemy course on [**The Complete Android 15 Course -Build 82 Apps
     * ItemTouchHelper
       * onSwiped left to delete data
       * onChildDraw to create fade-out animation
+      * clearView
 * UI Resources
   * Drawables
     * Set particular shape gradient as background
