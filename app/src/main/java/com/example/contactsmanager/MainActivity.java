@@ -1,7 +1,6 @@
 package com.example.contactsmanager;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -19,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.contactsmanager.databinding.ActivityMainBinding;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
