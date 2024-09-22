@@ -77,7 +77,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Phone"
-            android:inputType="textPhonetic"
+            android:inputType="phone"
             android:text="@={contact.phone}"
             android:textColor="@color/white"
             android:textColorHint="@color/black"
